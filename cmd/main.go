@@ -14,6 +14,7 @@ func main() {
     router := mux.NewRouter()
     routes.RegisterAuthRoutes(router)
     routes.RegisterProtectedRoutes(router)
+    routes.RegisterPostRoutes(router)
 
     log.Println("Server running on http://localhost:8080")
     http.ListenAndServe(":8080", router)

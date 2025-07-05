@@ -34,6 +34,8 @@ func InitDB() {
     }
 	db.AutoMigrate(&models.User{}, &models.Post{})
 	fmt.Println("Database connection established successfully")
+    // Set the global DB variable to the opened database connection
+
 
     DB = db
 }
