@@ -8,6 +8,8 @@ import (
     "github.com/joho/godotenv"
     "gorm.io/driver/postgres"
     "gorm.io/gorm"
+	"github.com/shivansh-source/go-rest-auth-api/models"
+
 )
 
 var DB *gorm.DB
@@ -30,6 +32,8 @@ func InitDB() {
     if err != nil {
         log.Fatal("Failed to connect to database:", err)
     }
+	db.AutoMigrate(&models.User{}, &models.Post{})
+	fmt.Println("Database connection established successfully")
 
     DB = db
 }
